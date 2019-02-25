@@ -1,0 +1,1 @@
+0 */5 * * * /usr/bin/python3 /home/okay/Desktop/monitor/monitor.py  > /home/okay/Desktop/monitor/monitor.log 2>&1
