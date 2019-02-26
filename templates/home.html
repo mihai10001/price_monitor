@@ -18,23 +18,27 @@
 			    overflow-y: scroll;
 				-webkit-overflow-scrolling: touch;
 		}
-	</style>
+
+        .list-group-item{
+                height: 3rem;
+        }
+    </style>
 
     <title>Home page</title>
   </head>
   <body>
-    <h1 class="text-center my-5">Pagina de start</h1>
+    <h1 class="text-center my-3">Pagina de start</h1>
 	<div class="container">
 		<div class="row h-100 p-4 rounded bg-primary">
 
 			<div class="col-sm-4 mx-auto p-2">
-				<div class="row h-25 mt-2">
+    			<div class="row h-25 mt-2">
                     <div class="col-sm-12 p-2 border border-secondary rounded bg-light">
-                        <div class="text-center">Lista produselor salvate</div>
+                        <div class="text-center"><strong>Lista produselor salvate</strong></div>
                     </div>
                 </div>
 
-                <div class="row h-25 mt-4">
+                <div class="row mt-4">
                     <div class="col-sm-12 p-2 border border-secondary rounded bg-light">
                         <div class="text-center"><strong>Alege un produs din lista pentru a vizualiza graficul pretului</strong></div>
                     </div>
@@ -48,10 +52,10 @@
 
 					<div class="panel-body">
 						<ul class="list-group">
-                            {% for ele in products %}
+                            {% for product in products %}
                                 <!-- <option value="{{ ele }}">{{ ele }}</option> -->
-                                <a href="{{ url_for('graph', name=ele) }}" style="color: black">
-                                  <li class="list-group-item"><strong> {{ ele }}</strong></li>
+                                <a href="{{ url_for('graph', name=product) }}" style="color: black">
+                                  <li class="list-group-item mt-2 text-center bg-warning" style="font-size: 0.7rem;"><strong> {{ product }}</strong></li>
                                 </a>
                             {% endfor %}
 						</ul>
@@ -65,16 +69,18 @@
 			<div class="col-sm-6 m-auto p-2 border border-secondary rounded bg-light">
 				<div class="text-center"><strong>Click pe buton pentru a adauga un produs</strong></div>
 			</div>
-			<div class="col-sm-3 m-auto p-2 rounded bg-light">
-				<button type="button" class="btn btn-dark btn-block"><strong>Adauga</strong></button>
+			<div class="col-sm-3 mx-auto mt-2 p-2 rounded bg-light">
+                <a href="{{ url_for('add') }}">
+				    <button type="button" class="btn btn-dark btn-block"><strong>Adauga</strong></button>
+                </a>
 			</div>
 		</div>
 
-		<div class="row h-100  mt-3 p-4 rounded bg-danger">
+		<div class="row h-100 mt-3 p-4 rounded bg-danger">
 			<div class="col-sm-6 m-auto p-2 border border-secondary rounded bg-light">
-				<div class="text-center"><strong>Click pe buton pentru a sterge un produs</strong></div>
+				<div class="text-center"><strong>*Incoming* Click pe buton pentru a sterge un produs</strong></div>
 			</div>
-			<div class="col-sm-3 m-auto p-2 rounded bg-light">
+			<div class="col-sm-3 mx-auto mt-2 p-2 rounded bg-light">
 				<button type="button" class="btn btn-dark btn-block"><strong>Sterge</strong></button>
 			</div>
 		</div>

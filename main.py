@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from pymongo import MongoClient
 from urllib.parse import quote
 from urllib.request import Request, urlopen
-from flask import Flask, render_template, g, Blueprint, jsonify, request as rf
+from flask import Flask, render_template, g, Blueprint, jsonify, request as reqflask
 
 # FLASK SETUP
 app = Flask(__name__)
@@ -72,3 +72,18 @@ def graph(name):
         price.append(document['price'])
 
     return render_template('graph.html', name=name, date=date, price=price)
+
+
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+    stores = []
+    for dist in entries.find().distinct('store'):
+        stores.append(dist)
+
+    if reqflask.form.get('submit') == 'Adauga':
+        item_name = reqflask.form.get('produs')
+        store = reqflask.form.get('magazin')
+        if item_name and store:
+            create_entry(item_name, store)
+
+    return render_template('add.html', stores=stores)

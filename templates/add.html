@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style>
+		html,body {
+			height: 100%;
+		}
+
+		.list-group{
+				height: 10rem;
+			    overflow-y: scroll;
+				-webkit-overflow-scrolling: touch;
+		}
+
+        .list-group-item{
+                height: 3rem;
+        }
+    </style>
+
+    <title>Home page</title>
+  </head>
+  <body>
+    <h1 class="text-center my-3">Adaugati un produs</h1>
+	<div class="container h-50">
+		<div class="row mx-auto p-4 rounded bg-success">
+            <div class="col-12 m-auto p-2">
+                <form method="post">
+                  <div class="form-group">
+                    <label for="nume_magazin">Alegeti magazinul dorit</label>
+                    <select class="form-control" id="nume_magazin" name="magazin">
+                      {% for store in stores %}
+                        <option>{{ store }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="nume_produs">Introduceti numele complet al produsului</label>
+                    <input class="form-control" id="nume_produs" name="produs">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="pret_dorit">*Incoming* Introduceti pretul cu care doriti sa achizitionati produsul</label>
+                    <input class="form-control" id="pret_dorit" readonly>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email_utilizator">*Incoming* Introduceti e-mailul pentru a fi notificat in urma reducerii</label>
+                    <input type="email" class="form-control" id="email_utilizator" readonly>
+                  </div>
+
+                  <input class="btn btn-warning btn-block" type="submit" name="submit" value="Adauga">
+                </form>
+            </div>
+        </div>
+
+        <div class="row mx-auto mt-3 p-4 rounded bg-primary">
+         <div class="col-sm-4 m-auto p-2 rounded bg-light">
+          <a href="{{ url_for('home') }}" style="color: black">
+            <button type="button" class="btn btn-dark btn-block"><strong>Inapoi</strong></button>
+          </a>
+         </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

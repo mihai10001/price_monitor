@@ -58,6 +58,6 @@ def update_entry_mag(entry):
 
 
 if __name__ == '__main__':
-    sec = 30
+    sec = 300
     count = entries.count()
     update_entries(sec//count)

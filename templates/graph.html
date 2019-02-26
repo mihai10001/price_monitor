@@ -20,15 +20,15 @@
     <title>Time series graph</title>
   </head>
   <body>
-    <h1 class="text-center mt-5">Graficul pretului in functie de timp</h1>
+    <h1 class="text-center my-3">Graficul pretului in functie de timp</h1>
     <div class="container h-75">
-      <div class="row h-100 m-auto rounded bg-primary">
-        <div class="col-sm-9 m-auto rounded bg-light" id="plot">
+      <div class="row h-100 m-auto p-3 rounded bg-warning">
+        <div class="col-11 m-auto" id="plot">
           <script>
           var layout = {
                         title: {{ name|tojson }},
                         xaxis: {
-                          title: 'Date',
+                          title: 'Data',
                           titlefont: {
                             family: 'Arial, sans-serif',
                             size: 18,
@@ -45,7 +45,7 @@
                           showexponent: 'all'
                         },
                         yaxis: {
-                          title: 'Price',
+                          title: 'Pret',
                           titlefont: {
                             family: 'Arial, sans-serif',
                             size: 18,
@@ -69,14 +69,16 @@
                           type: 'scatter'
                       }];
 
-           Plotly.newPlot('plot', data, layout, {showSendToCloud: true, responsive: true });
+           Plotly.newPlot('plot', data, layout, { responsive: true, displayModeBar: false });
           </script>
         </div>
       </div>
 
-      <div class="row p-4 m-auto rounded bg-primary">
-         <div class="col-sm-4 m-auto rounded bg-light">
-          Dute inapoi
+      <div class="row p-4 mx-auto mt-3 rounded bg-primary">
+         <div class="col-sm-4 m-auto p-2 rounded bg-light">
+          <a href="{{ url_for('home') }}" style="color: black">
+            <button type="button" class="btn btn-dark btn-block"><strong>Inapoi</strong></button>
+          </a>
          </div>
       </div>
     </div>
