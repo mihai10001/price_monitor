@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style>
+		html,body {
+			height: 100%;
+		}
+
+		.list-group{
+				height: 10rem;
+			    overflow-y: scroll;
+				-webkit-overflow-scrolling: touch;
+		}
+	</style>
+
+    <title>Home page</title>
+  </head>
+  <body>
+    <h1 class="text-center my-5">Pagina de start</h1>
+	<div class="container">
+		<div class="row h-100 p-4 rounded bg-primary">
+
+			<div class="col-sm-4 mx-auto p-2">
+				<div class="row h-25 mt-2">
+                    <div class="col-sm-12 p-2 border border-secondary rounded bg-light">
+                        <div class="text-center">Lista produselor salvate</div>
+                    </div>
+                </div>
+
+                <div class="row h-25 mt-4">
+                    <div class="col-sm-12 p-2 border border-secondary rounded bg-light">
+                        <div class="text-center"><strong>Alege un produs din lista pentru a vizualiza graficul pretului</strong></div>
+                    </div>
+                </div>
+			</div>
+
+			<div class="col-sm-6 m-auto p-2 rounded border bg-light">
+				<div class="panel panel-info">
+					<div class="panel-heading"><h3 class="panel-title text-center">Lista produselor:</h3>
+					</div>
+
+					<div class="panel-body">
+						<ul class="list-group">
+                            {% for ele in products %}
+                                <!-- <option value="{{ ele }}">{{ ele }}</option> -->
+                                <a href="{{ url_for('graph', name=ele) }}" style="color: black">
+                                  <li class="list-group-item"><strong> {{ ele }}</strong></li>
+                                </a>
+                            {% endfor %}
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row h-100 mt-5 p-4 rounded bg-success">
+			<div class="col-sm-6 m-auto p-2 border border-secondary rounded bg-light">
+				<div class="text-center"><strong>Click pe buton pentru a adauga un produs</strong></div>
+			</div>
+			<div class="col-sm-3 m-auto p-2 rounded bg-light">
+				<button type="button" class="btn btn-dark btn-block"><strong>Adauga</strong></button>
+			</div>
+		</div>
+
+		<div class="row h-100  mt-3 p-4 rounded bg-danger">
+			<div class="col-sm-6 m-auto p-2 border border-secondary rounded bg-light">
+				<div class="text-center"><strong>Click pe buton pentru a sterge un produs</strong></div>
+			</div>
+			<div class="col-sm-3 m-auto p-2 rounded bg-light">
+				<button type="button" class="btn btn-dark btn-block"><strong>Sterge</strong></button>
+			</div>
+		</div>
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
