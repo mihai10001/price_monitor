@@ -1,6 +1,6 @@
 import time
 import datetime
-import dryscrape  # FIX ME ALTERNATIVE
+#import dryscrape
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
 from urllib.request import Request, urlopen
@@ -58,6 +58,6 @@ def update_entry_mag(entry):
 
 
 if __name__ == '__main__':
-    sec = 300
+    sec = 1200
     count = entries.count()
     update_entries(sec//count)
